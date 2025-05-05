@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ᴊᴏᴊᴏ υρ! - Photographe Professionnel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">ᴊᴏᴊᴏ <span>υρ!</span></a>
+                <ul class="nav-links">
+                    <li><a href="#home">Accueil</a></li>
+                    <li><a href="#about">À propos</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#testimonials">Témoignages</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Saisir l'instant. Sublimer l'émotion.</h1>
+                <p>Bienvenue sur l'univers de ᴊᴏᴊᴏ υρ! Explorez ma vision de la photographie et laissez-vous inspirer par des instants capturés avec passion.</p>
+                <div class="hero-btns">
+                    <a href="#portfolio" class="btn">Voir mon travail</a>
+                    <a href="#contact" class="btn btn-outline">Réserver une séance</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">À propos</h2>
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="https://i.postimg.cc/9Fz4VxJ4/jojo.jpg" alt="ᴊᴏᴊᴏ υρ! Photographe">
+                </div>
+                <div class="about-text">
+                    <h3>Je m'appelle ᴊᴏᴊᴏ υρ!</h3>
+                    <p>Photographe passionné, spécialisé dans la capture d'émotions vraies et naturelles. Derrière mon objectif, je cherche à figer les instants qui comptent, les regards sincères et les sourires spontanés. Chaque séance est une rencontre, chaque photo une histoire.</p>
+                    <p>Mon objectif est de raconter votre histoire avec authenticité, sensibilité et esthétisme. J'aime travailler dans une atmosphère détendue, où chacun peut être soi-même, pour que les photos reflètent la vérité du moment.</p>
+                    
+                    <div class="commitments">
+                        <h4>Mes engagements :</h4>
+                        <div class="commitment-item">
+                            <div class="commitment-icon"><i class="fas fa-heart"></i></div>
+                            <div>
+                                <h5>Authenticité</h5>
+                                <p>Je privilégie les émotions naturelles à la pose figée.</p>
+                            </div>
+                        </div>
+                        <div class="commitment-item">
+                            <div class="commitment-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                            <div>
+                                <h5>Écoute & bienveillance</h5>
+                                <p>Je prends le temps de comprendre vos attentes.</p>
+                            </div>
+                        </div>
+                        <div class="commitment-item">
+                            <div class="commitment-icon"><i class="fas fa-gem"></i></div>
+                            <div>
+                                <h5>Qualité & retouche fine</h5>
+                                <p>Chaque image livrée est soigneusement travaillée.</p>
+                            </div>
+                        </div>
+                        <div class="commitment-item">
+                            <div class="commitment-icon"><i class="fas fa-user-secret"></i></div>
+                            <div>
+                                <h5>Discrétion et professionnalisme</h5>
+                                <p>Pour capturer sans déranger.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <h2 class="section-title">Mon Portfolio</h2>
+            <div class="portfolio-filter">
+                <button class="filter-btn active" data-filter="all">Tous</button>
+                <button class="filter-btn" data-filter="mariage">Mariage</button>
+                <button class="filter-btn" data-filter="portrait">Portrait</button>
+                <button class="filter-btn" data-filter="evenementiel">Événementiel</button>
+                <button class="filter-btn" data-filter="mode">Mode/Studio</button>
+                <button class="filter-btn" data-filter="famille">Enfants/Famille</button>
+            </div>
+            <div class="portfolio-grid">
+                <!-- Mariage -->
+                <div class="portfolio-item" data-category="mariage">
+                    <img src="https://i.postimg.cc/nC8Dyp8J/mariage1.jpg" alt="Photo de mariage">
+                    <div class="portfolio-overlay">
+                        <h3>Mariage</h3>
+                        <p>Amour éternel</p>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="mariage">
+                    <img src="https://i.postimg.cc/SJWMq3qz/mariage2.jpg" alt="Photo de mariage">
+                    <div class="portfolio-overlay">
+                        <h3>Mariage</h3>
+                        <p>Premier baiser</p>
+                    </div>
+                </div>
+                
+                <!-- Portrait -->
+                <div class="portfolio-item" data-category="portrait">
+                    <img src="https://i.postimg.cc/wtbt0d5n/portrait1.jpg" alt="Portrait">
+                    <div class="portfolio-overlay">
+                        <h3>Portrait</h3>
+                        <p>Regard intense</p>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="portrait">
+                    <img src="https://i.postimg.cc/hQVfDQFq/portrait2.jpg" alt="Portrait">
+                    <div class="portfolio-overlay">
+                        <h3>Portrait</h3>
+                        <p>Sourire naturel</p>
+                    </div>
+                </div>
+                
+                <!-- Événementiel -->
+                <div class="portfolio-item" data-category="evenementiel">
+                    <img src="https://i.postimg.cc/Whn15vTS/event1.jpg" alt="Événement">
+                    <div class="portfolio-overlay">
+                        <h3>Événementiel</h3>
+                        <p>Soirée d'entreprise</p>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="evenementiel">
+                    <img src="https://i.postimg.cc/4H1s26kn/event2.jpg" alt="Événement">
+                    <div class="portfolio-overlay">
+                        <h3>Événementiel</h3>
+                        <p>Concert live</p>
+                    </div>
+                </div>
+                
+                <!-- Mode/Studio -->
+                <div class="portfolio-item" data-category="mode">
+                    <img src="https://i.postimg.cc/tZ3j73gD/mode1.jpg" alt="Mode">
+                    <div class="portfolio-overlay">
+                        <h3>Mode/Studio</h3>
+                        <p>Editorial fashion</p>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="mode">
+                    <img src="https://i.postimg.cc/JDxr7fKP/mode2.jpg" alt="Mode">
+                    <div class="portfolio-overlay">
+                        <h3>Mode/Studio</h3>
+                        <p>Portrait artistique</p>
+                    </div>
+                </div>
+                
+                <!-- Enfants/Famille -->
+                <div class="portfolio-item" data-category="famille">
+                    <img src="https://i.postimg.cc/FfG8Yh5d/famille1.jpg" alt="Famille">
+                    <div class="portfolio-overlay">
+                        <h3>Enfants/Famille</h3>
+                        <p>Moment de complicité</p>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="famille">
+                    <img src="https://i.postimg.cc/PvDSQjcM/famille2.jpg" alt="Famille">
+                    <div class="portfolio-overlay">
+                        <h3>Enfants/Famille</h3>
+                        <p>Jeux d'enfants</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">Prestations & Tarifs</h2>
+            <div class="pricing-table">
+                <!-- Portrait solo -->
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Portrait solo</h3>
+                    </div>
+                    <div class="pricing-body">
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check"></i> Séance en extérieur ou studio</li>
+                            <li><i class="fas fa-check"></i> Retouche pro incluse</li>
+                            <li><i class="fas fa-check"></i> Durée : 1h-1h30</li>
+                            <li><i class="fas fa-check"></i> 10-15 photos retouchées</li>
+                        </ul>
+                        <div class="pricing-price">
+                            1 photo : 25€<br>
+                            3 photos : 60€
+                        </div>
+                        <a href="#contact" class="btn pricing-btn">Réserver</a>
+                    </div>
+                </div>
+                
+                <!-- Portrait couple/duo -->
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Portrait couple / duo</h3>
+                    </div>
+                    <div class="pricing-body">
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check"></i> Pour couples, amis, famille</li>
+                            <li><i class="fas fa-check"></i> 2 tenues possibles</li>
+                            <li><i class="fas fa-check"></i> Durée : 1h30-2h</li>
+                            <li><i class="fas fa-check"></i> 15-20 photos retouchées</li>
+                        </ul>
+                        <div class="pricing-price">
+                            1 photo : 35€<br>
+                            3 photos : 80€
+                        </div>
+                        <a href="#contact" class="btn pricing-btn">Réserver</a>
+                    </div>
+                </div>
+                
+                <!-- Séance artistique / mode -->
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Séance artistique / mode</h3>
+                    </div>
+                    <div class="pricing-body">
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check"></i> Mise en scène créative</li>
+                            <li><i class="fas fa-check"></i> Lumière & retouche haut niveau</li>
+                            <li><i class="fas fa-check"></i> Durée : 2h-3h</li>
+                            <li><i class="fas fa-check"></i> 10-12 photos artistiques</li>
+                        </ul>
+                        <div class="pricing-price">
+                            1 photo : 40€<br>
+                            3 photos : 90€
+                        </div>
+                        <a href="#contact" class="btn pricing-btn">Réserver</a>
+                    </div>
+                </div>
+                
+                <!-- Événement -->
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Événement</h3>
+                    </div>
+                    <div class="pricing-body">
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check"></i> Anniversaire, soirée...</li>
+                            <li><i class="fas fa-check"></i> Reportage sur le vif</li>
+                            <li><i class="fas fa-check"></i> Durée selon événement</li>
+                            <li><i class="fas fa-check"></i> Minimum 15 photos livrées</li>
+                        </ul>
+                        <div class="pricing-price">
+                            Sur devis<br>
+                            À partir de 150€
+                        </div>
+                        <a href="#contact" class="btn pricing-btn">Demander un devis</a>
+                    </div>
+                </div>
+                
+                <!-- Photo corporate -->
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Photo corporate</h3>
+                    </div>
+                    <div class="pricing-body">
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check"></i> CV, LinkedIn, business profile</li>
+                            <li><i class="fas fa-check"></i> Fond neutre ou décor urbain</li>
+                            <li><i class="fas fa-check"></i> Durée : 45min-1h</li>
+                            <li><i class="fas fa-check"></i> 3-5 photos professionnelles</li>
+                        </ul>
+                        <div class="pricing-price">
+                            1 photo : 30€<br>
+                            3 photos : 70€
+                        </div>
+                        <a href="#contact" class="btn pricing-btn">Réserver</a>
+                    </div>
+                </div>
+                
+                <!-- Photo de produit -->
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Photo de produit</h3>
+                    </div>
+                    <div class="pricing-body">
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check"></i> E-commerce, créateurs, marques</li>
+                            <li><i class="fas fa-check"></i> Haute qualité & détails</li>
+                            <li><i class="fas fa-check"></i> Studio professionnel</li>
+                            <li><i class="fas fa-check"></i> Retouches spécifiques</li>
+                        </ul>
+                        <div class="pricing-price">
+                            1 photo : 20€<br>
+                            3 photos : 50€
+                        </div>
+                        <a href="#contact" class="btn pricing-btn">Réserver</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <h2 class="section-title">Témoignages</h2>
+            <div class="testimonial-container">
+                <!-- Témoignage 1 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Client" class="testimonial-img">
+                        <div class="testimonial-author">
+                            <h4>Sophie D.</h4>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p>"ᴊᴏᴊᴏ a capturé notre mariage avec une sensibilité incroyable. Les photos sont magnifiques et reflètent parfaitement l'émotion de cette journée. Professionnel et discret, il a su mettre tout le monde à l'aise. Nous recommandons sans hésiter !"</p>
+                </div>
+                
+                <!-- Témoignage 2 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Client" class="testimonial-img">
+                        <div class="testimonial-author">
+                            <h4>Thomas L.</h4>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p>"Séance photo corporate pour mon entreprise. ᴊᴏᴊᴏ a su capter l'essence de notre marque avec des photos professionnelles et élégantes. Un vrai travail de pro, tant sur le shooting que sur les retouches. Résultat au-delà de nos attentes."</p>
+                </div>
+                
+                <!-- Formulaire de témoignage -->
+                <div class="testimonial-form">
+                    <h3>Laissez votre avis</h3>
+                    <form id="testimonialForm">
+                        <div class="form-group">
+                            <label for="name">Votre nom</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Votre email</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Service utilisé</label>
+                            <select id="service" class="form-control" required>
+                                <option value="">-- Sélectionnez --</option>
+                                <option value="portrait_solo">Portrait solo</option>
+                                <option value="portrait_couple">Portrait couple/duo</option>
+                                <option value="artistique">Séance artistique/mode</option>
+                                <option value="evenement">Événement</option>
+                                <option value="corporate">Photo corporate</option>
+                                <option value="produit">Photo de produit</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Votre note</label>
+                            <div class="rating-input">
+                                <span>Note :</span>
+                                <div class="stars">
+                                    <i class="fas fa-star" data-rating="1"></i>
+                                    <i class="fas fa-star" data-rating="2"></i>
+                                    <i class="f
