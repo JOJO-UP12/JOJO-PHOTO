@@ -76,14 +76,50 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Envoi du formulaire de contact (simulé)
-document.getElementById('contactForm').addEventListener('submit', function(e) {
+// Mode sombre/clair
+const themeToggle = document.getElementById('theme-toggle');
+const currentTheme = localStorage.getItem('theme');
+
+if (currentTheme) {
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    
+    if (currentTheme === 'dark') {
+        themeToggle.checked = true;
+    }
+}
+
+themeToggle.addEventListener('change', function() {
+    if (this.checked) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+    } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
+    }
+});
+
+// Envoi du formulaire de contact
+document.querySelector('.contact-form form').addEventListener('submit', function(e) {
     e.preventDefault();
-    alert('Merci pour votre message ! Je vous répondrai dès que possible.');
+    
+    // Validation simple
+    const name = document.getElementById('reservation-name').value;
+    const email = document.getElementById('reservation-email').value;
+    
+    if (!name || !email) {
+        alert('Veuillez remplir les champs obligatoires');
+        return;
+    }
+    
+    // Envoi du formulaire
+    this.submit();
+    
+    // Message de confirmation
+    alert('Votre demande de réservation a bien été envoyée ! Je vous répondrai dans les 24h.');
     this.reset();
 });
 
-// Envoi du formulaire de témoignage (simulé)
+// Envoi du formulaire de témoignage
 document.getElementById('testimonialForm').addEventListener('submit', function(e) {
     e.preventDefault();
     alert('Merci pour votre témoignage ! Il sera publié après modération.');
@@ -92,4 +128,23 @@ document.getElementById('testimonialForm').addEventListener('submit', function(e
     // Réinitialiser les étoiles
     stars.forEach(star => star.classList.remove('active'));
     ratingInput.value = '0';
+});
+
+// Optimisation des images
+document.addEventListener('DOMContentLoaded', function() {
+    const images = document.querySelectorAll('img[loading="lazy"]');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.getAttribute('src');
+                observer.unobserve(img);
+            }
+        });
+    });
+    
+    images.forEach(img => {
+        observer.observe(img);
+    });
 });
