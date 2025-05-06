@@ -1,10 +1,26 @@
 /* Styles généraux */
 :root {
+    /* Couleurs claires par défaut */
     --primary-color: #2c3e50;
     --secondary-color: #e74c3c;
     --light-color: #ecf0f1;
     --dark-color: #2c3e50;
     --accent-color: #3498db;
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --header-bg: #ffffff;
+    --card-bg: #f9f9f9;
+    --section-alt: #f5f5f5;
+}
+
+[data-theme="dark"] {
+    --bg-color: #121212;
+    --text-color: #f5f5f5;
+    --header-bg: #1e1e1e;
+    --card-bg: #2d2d2d;
+    --section-alt: #252525;
+    --primary-color: #bb86fc;
+    --secondary-color: #03dac6;
 }
 
 * {
@@ -16,8 +32,9 @@
 
 body {
     line-height: 1.6;
-    color: #333;
-    background-color: #f9f9f9;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 a {
@@ -63,6 +80,16 @@ a {
     color: white;
 }
 
+[data-theme="dark"] .btn-outline {
+    color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+[data-theme="dark"] .btn-outline:hover {
+    background-color: var(--secondary-color);
+    color: #121212;
+}
+
 section {
     padding: 80px 0;
 }
@@ -84,21 +111,27 @@ section {
     margin: 15px auto;
 }
 
+[data-theme="dark"] .section-title::after {
+    background-color: var(--secondary-color);
+}
+
 /* Header */
 header {
-    background-color: white;
+    background-color: var(--header-bg);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
 }
 
 nav {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 20px 0;
 }
 
 .logo {
@@ -146,6 +179,49 @@ nav {
     cursor: pointer;
 }
 
+/* Theme Switcher */
+.theme-switcher {
+    position: relative;
+    margin-left: 20px;
+}
+
+.theme-toggle-label {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 60px;
+    height: 30px;
+    background: var(--primary-color);
+    border-radius: 50px;
+    padding: 5px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.theme-toggle-label i {
+    font-size: 14px;
+    color: white;
+}
+
+.theme-toggle-label .ball {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    background: white;
+    border-radius: 50%;
+    left: 4px;
+    transition: transform 0.3s ease;
+}
+
+#theme-toggle {
+    display: none;
+}
+
+#theme-toggle:checked + .theme-toggle-label .ball {
+    transform: translateX(30px);
+}
+
 /* Hero Section */
 .hero {
     height: 100vh;
@@ -185,7 +261,7 @@ nav {
 
 /* About Section */
 .about {
-    background-color: white;
+    background-color: var(--bg-color);
 }
 
 .about-content {
@@ -205,6 +281,8 @@ nav {
     width: 100%;
     height: auto;
     display: block;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
 }
 
 .about-text {
@@ -238,9 +316,13 @@ nav {
     margin-top: 3px;
 }
 
+[data-theme="dark"] .commitment-icon {
+    color: var(--secondary-color);
+}
+
 /* Portfolio Section */
 .portfolio {
-    background-color: #f5f5f5;
+    background-color: var(--section-alt);
 }
 
 .portfolio-filter {
@@ -286,6 +368,8 @@ nav {
     height: 100%;
     object-fit: cover;
     transition: transform 0.5s ease;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
 }
 
 .portfolio-item:hover img {
@@ -319,7 +403,7 @@ nav {
 
 /* Services Section */
 .services {
-    background-color: white;
+    background-color: var(--bg-color);
 }
 
 .pricing-table {
@@ -329,7 +413,7 @@ nav {
 }
 
 .pricing-card {
-    background-color: #f9f9f9;
+    background-color: var(--card-bg);
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
@@ -390,7 +474,7 @@ nav {
 
 /* Testimonials Section */
 .testimonials {
-    background-color: #f5f5f5;
+    background-color: var(--section-alt);
 }
 
 .testimonial-container {
@@ -399,7 +483,7 @@ nav {
 }
 
 .testimonial-card {
-    background-color: white;
+    background-color: var(--card-bg);
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
@@ -429,7 +513,7 @@ nav {
 }
 
 .testimonial-form {
-    background-color: white;
+    background-color: var(--card-bg);
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
@@ -451,6 +535,9 @@ nav {
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 1rem;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    border-color: var(--section-alt);
 }
 
 textarea.form-control {
@@ -485,7 +572,7 @@ textarea.form-control {
 
 /* Contact Section */
 .contact {
-    background-color: white;
+    background-color: var(--bg-color);
 }
 
 .contact-container {
@@ -512,31 +599,58 @@ textarea.form-control {
     min-width: 30px;
 }
 
+[data-theme="dark"] .contact-icon {
+    color: var(--secondary-color);
+}
+
 .contact-text h3 {
     margin-bottom: 5px;
 }
 
 .social-links {
-    display: flex;
-    margin-top: 20px;
+    margin-top: 30px;
+}
+
+.social-links h3 {
+    margin-bottom: 15px;
+}
+
+.social-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
 }
 
 .social-link {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    background-color: var(--primary-color);
-    color: white;
-    border-radius: 50%;
-    margin-right: 15px;
+    text-align: center;
+    color: var(--primary-color);
+    font-weight: 600;
     transition: all 0.3s ease;
 }
 
 .social-link:hover {
-    background-color: var(--secondary-color);
-    transform: translateY(-3px);
+    color: var(--secondary-color);
+    transform: translateY(-5px);
+}
+
+.social-link img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-bottom: 8px;
+    transition: transform 0.3s ease;
+    object-fit: cover;
+}
+
+.social-link:hover img {
+    transform: scale(1.1);
+}
+
+.social-link span {
+    font-size: 0.9rem;
 }
 
 .contact-form .form-group {
@@ -616,7 +730,7 @@ footer {
         left: -100%;
         width: 100%;
         height: calc(100vh - 80px);
-        background-color: white;
+        background-color: var(--header-bg);
         flex-direction: column;
         align-items: center;
         padding-top: 40px;
@@ -649,6 +763,11 @@ footer {
     .section-title {
         font-size: 2rem;
     }
+    
+    .theme-switcher {
+        margin-left: 10px;
+        order: -1;
+    }
 }
 
 @media (max-width: 576px) {
@@ -667,4 +786,8 @@ footer {
     .pricing-table {
         grid-template-columns: 1fr;
     }
-}
+    
+    .social-grid {
+        grid-template-columns: 1fr;
+    }
+        }
