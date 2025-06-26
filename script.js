@@ -1,150 +1,180 @@
-// Menu mobile
-const hamburger = document.querySelector('.hamburger');
-const navLinks = document.querySelector('.nav-links');
-
-hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-});
-
-// Fermer le menu quand on clique sur un lien
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-    });
-});
-
-// Filtre portfolio
-const filterBtns = document.querySelectorAll('.filter-btn');
-const portfolioItems = document.querySelectorAll('.portfolio-item');
-
-filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-        // Retirer la classe active de tous les boutons
-        filterBtns.forEach(btn => btn.classList.remove('active'));
-        // Ajouter la classe active au bouton cliqué
-        btn.classList.add('active');
-        
-        const filter = btn.getAttribute('data-filter');
-        
-        portfolioItems.forEach(item => {
-            if (filter === 'all' || item.getAttribute('data-category') === filter) {
-                item.style.display = 'block';
-            } else {
-                item.style.display = 'none';
-            }
-        });
-    });
-});
-
-// Système de notation
-const stars = document.querySelectorAll('.stars i');
-const ratingInput = document.getElementById('rating');
-
-stars.forEach(star => {
-    star.addEventListener('click', () => {
-        const rating = star.getAttribute('data-rating');
-        ratingInput.value = rating;
-        
-        stars.forEach((s, index) => {
-            if (index < rating) {
-                s.classList.add('active');
-            } else {
-                s.classList.remove('active');
-            }
-        });
-    });
-});
-
-// Année du copyright
-document.getElementById('year').textContent = new Date().getFullYear();
-
-// Smooth scrolling pour les liens d'ancrage
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        const targetId = this.getAttribute('href');
-        if (targetId === '#') return;
-        
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-            window.scrollTo({
-                top: targetElement.offsetTop - 80,
-                behavior: 'smooth'
-            });
-        }
-    });
-});
-
-// Mode sombre/clair
-const themeToggle = document.getElementById('theme-toggle');
-const currentTheme = localStorage.getItem('theme');
-
-if (currentTheme) {
-    document.documentElement.setAttribute('data-theme', currentTheme);
+/* Variables */
+:root {
+    --primary: #2c3e50;
+    --secondary: #e74c3c;
+    --accent: #3498db;
+    --light: #f9f9f9;
+    --dark: #222;
+    --text: #333;
+    --text-light: #777;
     
-    if (currentTheme === 'dark') {
-        themeToggle.checked = true;
+    --font-main: 'Raleway', sans-serif;
+    --font-heading: 'Playfair Display', serif;
+    
+    --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+/* Base */
+body {
+    font-family: var(--font-main);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+/* Header */
+.header {
+    position: fixed;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: var(--shadow);
+    z-index: 1000;
+    transition: var(--transition);
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.logo span {
+    color: var(--secondary);
+}
+
+/* Hero */
+.hero {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-slider .slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.hero-slider .slide.active {
+    opacity: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 0 20px;
+}
+
+.hero-title .line {
+    display: block;
+    overflow: hidden;
+    margin: 5px 0;
+}
+
+.hero-title span {
+    display: inline-block;
+    transform: translateY(100%);
+    animation: fadeUp 0.8s forwards;
+}
+
+@keyframes fadeUp {
+    to {
+        transform: translateY(0);
     }
 }
 
-themeToggle.addEventListener('change', function() {
-    if (this.checked) {
-        document.documentElement.setAttribute('data-theme', 'dark');
-        localStorage.setItem('theme', 'dark');
-    } else {
-        document.documentElement.setAttribute('data-theme', 'light');
-        localStorage.setItem('theme', 'light');
+/* Portfolio */
+.portfolio-section {
+    padding: 100px 0;
+    background: var(--light);
+}
+
+.portfolio-filter {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 40px;
+}
+
+.filter-btn {
+    padding: 8px 20px;
+    background: none;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    cursor: pointer;
+    transition: var(--transition);
+    border-radius: 30px;
+    font-weight: 600;
+}
+
+.filter-btn.active, .filter-btn:hover {
+    background: var(--primary);
+    color: white;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.portfolio-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    aspect-ratio: 1 / 1;
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.portfolio-item:hover img {
+    transform: scale(1.1);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.portfolio-item:hover .overlay {
+    opacity: 1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .portfolio-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     }
-});
-
-// Envoi du formulaire de contact
-document.querySelector('.contact-form form').addEventListener('submit', function(e) {
-    e.preventDefault();
     
-    // Validation simple
-    const name = document.getElementById('reservation-name').value;
-    const email = document.getElementById('reservation-email').value;
-    
-    if (!name || !email) {
-        alert('Veuillez remplir les champs obligatoires');
-        return;
+    .hero-title {
+        font-size: 2.5rem;
     }
-    
-    // Envoi du formulaire
-    this.submit();
-    
-    // Message de confirmation
-    alert('Votre demande de réservation a bien été envoyée ! Je vous répondrai dans les 24h.');
-    this.reset();
-});
-
-// Envoi du formulaire de témoignage
-document.getElementById('testimonialForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    alert('Merci pour votre témoignage ! Il sera publié après modération.');
-    this.reset();
-    
-    // Réinitialiser les étoiles
-    stars.forEach(star => star.classList.remove('active'));
-    ratingInput.value = '0';
-});
-
-// Optimisation des images
-document.addEventListener('DOMContentLoaded', function() {
-    const images = document.querySelectorAll('img[loading="lazy"]');
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                img.src = img.getAttribute('src');
-                observer.unobserve(img);
-            }
-        });
-    });
-    
-    images.forEach(img => {
-        observer.observe(img);
-    });
-});
+    }
